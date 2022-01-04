@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../styles/InfoArea.module.css";
+import Image from "next/image";
 
 const InfoArea = ({ nftInfo }) => {
   return (
@@ -17,7 +18,14 @@ const InfoArea = ({ nftInfo }) => {
             </div>
             <p className={styles.smallerText}>View on blockchain</p>
           </div>
-          <div></div>
+          <div>
+            <Image
+              src="/bottle.jpg"
+              alt="Amat brand logo"
+              width={332}
+              height={427}
+            />
+          </div>
         </div>
       )}
     </section>
