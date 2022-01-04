@@ -2,6 +2,8 @@ import Head from "next/head";
 import Navbar from "../components/Navbar";
 import styles from "../styles/Home.module.css";
 import { useState, useEffect } from "react";
+import About from "../components/About";
+import InfoArea from "../components/InfoArea";
 
 export default function Home() {
   const [account, setAccount] = useState("connect");
@@ -18,6 +20,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar setAccount={setAccount} />
+      <main id={styles.maincontainer}>
+        <About />
+        <InfoArea />
+      </main>
     </div>
   );
 }

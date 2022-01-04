@@ -1,0 +1,15 @@
+#aboutcontainer {
+  display: flex;
+  flex-direction: column;
+  background-color: red;
+  min-width: 100%;
+}
+
+@media screen and (min-width: 1024px) {
+  #aboutcontainer {
+    display: flex;
+    flex-direction: row;
+    background-color: red;
+    min-width: 33%;
+  }
+}
