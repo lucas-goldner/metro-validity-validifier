@@ -7,6 +7,7 @@ import InfoArea from "../components/InfoArea";
 
 export default function Home() {
   const [account, setAccount] = useState("connect");
+  const [nftInfo, setNftInfo] = useState({ name: "liucas" });
 
   useEffect(() => {
     console.log(account);
@@ -28,7 +29,7 @@ export default function Home() {
       <Navbar setAccount={setAccount} />
       <main id={styles.maincontainer}>
         <About />
-        <InfoArea />
+        <InfoArea nftInfo={nftInfo} />
       </main>
     </div>
   );
