@@ -1,0 +1,48 @@
+#metamask {
+  border: 0;
+  padding: 0rem 1rem 0rem 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #9c9c9c;
+  border-radius: 5px;
+  margin-top: 0rem;
+}
+
+#metamasksuccess {
+  border: 0;
+  padding: 0rem 1rem 0rem 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: black;
+  border-radius: 5px;
+  margin-top: 0rem;
+}
+
+.metamaskicon {
+}
+
+.metamasktext {
+  margin-left: 1rem;
+  color: white;
+}
+
+#metamask:hover {
+  background-color: white;
+  border: 1px solid black;
+}
+
+.metamasktextblack {
+  margin-left: 1rem;
+  color: black;
+}
+
+@media screen and (min-width: 1024px) {
+  #metamask {
+    border: 0;
+    padding: 0rem 2rem 0rem 1rem;
+  }
+}
