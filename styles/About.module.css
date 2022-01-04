@@ -12,12 +12,17 @@
 }
 
 #desc {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  margin-top: 0rem;
 }
 
 @media screen and (min-width: 1024px) {
   #aboutcontainer {
     min-width: 33%;
     padding: 0rem 0rem 0rem 2rem;
+  }
+
+  #desc {
+    font-size: 1.5rem;
   }
 }
