@@ -4,7 +4,7 @@ import styles from "../styles/InfoArea.module.css";
 const InfoArea = () => {
   return (
     <section id={styles.infocontainer}>
-      <h1>Info</h1>
+      <p className={"white desc"}>Please log in with MetaMask</p>
     </section>
   );
 };

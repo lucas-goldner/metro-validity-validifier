@@ -1,14 +1,17 @@
 #infocontainer {
   display: flex;
   flex-direction: column;
-  background-color: green;
+  padding: 1rem 2rem;
+  background-color: black;
+  align-items: center;
+  justify-content: center;
 }
 
 @media screen and (min-width: 1024px) {
   #infocontainer {
     display: flex;
     flex-direction: row;
-    background-color: green;
+    background-color: black;
     min-width: 67%;
   }
 }

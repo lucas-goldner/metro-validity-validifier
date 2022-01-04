@@ -5,7 +5,6 @@
 #maincontainer {
   display: flex;
   flex-direction: column;
-
   height: 100vw;
 }
 
@@ -13,7 +12,6 @@
   #maincontainer {
     display: flex;
     flex-direction: row;
-
     height: 50vw;
   }
 }
