@@ -1,15 +1,23 @@
 #aboutcontainer {
   display: flex;
   flex-direction: column;
-  background-color: red;
   min-width: 100%;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2rem;
+}
+
+#title {
+  font-size: 2rem;
+}
+
+#desc {
+  font-size: 1.5rem;
 }
 
 @media screen and (min-width: 1024px) {
   #aboutcontainer {
-    display: flex;
-    flex-direction: row;
-    background-color: red;
     min-width: 33%;
+    padding: 0rem 0rem 0rem 2rem;
   }
 }

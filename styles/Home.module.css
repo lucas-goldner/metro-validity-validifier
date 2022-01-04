@@ -5,7 +5,7 @@
 #maincontainer {
   display: flex;
   flex-direction: column;
-  background-color: rebeccapurple;
+
   height: 100vw;
 }
 
@@ -13,7 +13,7 @@
   #maincontainer {
     display: flex;
     flex-direction: row;
-    background-color: rebeccapurple;
+
     height: 50vw;
   }
 }
