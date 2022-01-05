@@ -30,6 +30,10 @@ a {
   color: white;
 }
 
+.spacer {
+  margin-left: 1rem;
+}
+
 @media screen and (min-width: 1024px) {
   .titleFont {
     font-family: Courier Prime;

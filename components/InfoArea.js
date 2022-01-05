@@ -18,17 +18,40 @@ const InfoArea = ({ nftInfo }) => {
             </div>
             <p className={styles.smallerText}>View on blockchain</p>
           </div>
-          <div>
+          <div className={styles.infoRow}>
             <Image
               src="/bottle.jpg"
-              alt="Amat brand logo"
+              alt="Amatwine bottle"
               width={332}
               height={427}
             />
+            <div className={styles.statsContainer}>
+              <StatsItem stat="bespoke number" value="648576" />
+              <StatsItem stat="wine name" value="648576" />
+              <StatsItem stat="lot number" value="648576" />
+              <StatsItem stat="release year" value="648576" />
+              <StatsItem stat="wine style" value="648576" />
+              <StatsItem stat="total bottles" value="648576" />
+              <StatsItem stat="bottle" value="648576" />
+              <StatsItem stat="alcohol" value="648576" />
+              <StatsItem stat="bottle style" value="648576" />
+              <StatsItem stat="website" value="648576" />
+              <StatsItem stat="verification number" value="648576" />
+            </div>
           </div>
         </div>
       )}
     </section>
+  );
+};
+
+const StatsItem = ({ stat, value }) => {
+  return (
+    <div className={styles.statsrow}>
+      <p className={"white descFont"}>{stat}</p>
+      <div className={"spacer"} />
+      <p className={"white titleFont"}>{value}</p>
+    </div>
   );
 };
 
