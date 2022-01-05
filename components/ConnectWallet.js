@@ -4,20 +4,23 @@ import styles from "../styles/ConnectWallet.module.css";
 import { ethers } from "ethers";
 import { useWeb3Modal } from "../hooks/web3";
 
-const ConnectWallet = ({ setAccount }) => {
+const ConnectWallet = ({ setAccount, fetchNFTs }) => {
   const [buttonText, setButtonText] = useState("Connect to MetaMask");
   const [hover, setHover] = useState(false);
   const { connectWallet, disconnectWallet, provider, error } = useWeb3Modal();
 
   useEffect(() => {
     const getAddress = async () => {
-      const signer = provider.getSigner();
-      const address = await signer.getAddress();
-      setAccount(address);
+      // const signer = provider.getSigner();
+      // const address = await signer.getAddress();
+      // setAccount(address);
 
-      const networkId = await provider.getNetwork();
-      console.log(networkId);
-      setButtonText("Connected to Metamask");
+      // const networkId = await provider.getNetwork();
+      // console.log(networkId);
+
+      // setButtonText("Connected to Metamask");
+      fetchNFTs("0x746Dc9D8fdeCd183d3F5Dd33F2374c5C8E8173Ff");
+
       //setNetworkId(networkId);
       // if(chainId !== 8001)
 

@@ -5,16 +5,81 @@ import { useState, useEffect } from "react";
 import About from "../components/About";
 import InfoArea from "../components/InfoArea";
 import Footer from "../components/Footer";
+import Web3 from "web3";
+import abiDecoder from "abi-decoder";
+import amatwinecontract from "../config/amatwine.json";
 
 export default function Home() {
   const [account, setAccount] = useState("connect");
   const [nftInfo, setNftInfo] = useState({});
 
-  useEffect(() => {
-    setAccount("0x746Dc9D8fdeCd183d3F5Dd33F2374c5C8E8173Ff");
-    console.log(account);
-    console.log(process.env.COVALENT_KEY);
-  }, [account]);
+  const fetchNFTs = (adress) => {
+    const provider = new Web3.providers.HttpProvider(
+      "https://polygon-rpc.com/"
+    );
+    web3 = new Web3(provider);
+    abiDecoder.addABI(amatwinecontract.abi);
+
+    fetch(
+      "https://api.covalenthq.com/v1/137/address/" +
+        adress +
+        "/transactions_v2/?quote-currency=USD&format=JSON&block-signed-at-asc=false&no-logs=false&key=" +
+        process.env.NEXT_PUBLIC_COVALENT_KEY
+    )
+      .then((res) => res.json())
+      .then((result) => {
+        const newestTransaction =
+          result.data.items[result.data.items.length - 1];
+        const hash = newestTransaction.tx_hash;
+
+        fetch(
+          "https://api.covalenthq.com/v1/137/transaction_v2/" +
+            hash +
+            "/?quote-currency=USD&format=JSON&no-logs=false&key=" +
+            process.env.NEXT_PUBLIC_COVALENT_KEY
+        )
+          .then((transactionDetails) => transactionDetails.json())
+          .then((transactionDetailsJson) => {
+            const log_events = transactionDetailsJson.data.items[0].log_events;
+            const tokenId = web3.utils.hexToNumber(
+              log_events[1].raw_log_topics[3]
+            );
+            fetch(
+              "https://api.covalenthq.com/v1/137/tokens/0xc31d5cb4ce44c2c0b2119c28485a5e90f89406fd/nft_transactions/" +
+                tokenId +
+                "/?quote-currency=USD&format=JSON&key=" +
+                process.env.NEXT_PUBLIC_COVALENT_KEY
+            )
+              .then((nftTransaction) => nftTransaction.json())
+              .then((nftTransactionJson) => {
+                const initialTokenHash =
+                  nftTransactionJson.data.items[0].nft_transactions[
+                    nftTransactionJson.data.items[0].nft_transactions.length - 1
+                  ].tx_hash;
+                fetch(
+                  "https://api.polygonscan.com/api?module=proxy&action=eth_getTransactionByHash&txhash=" +
+                    initialTokenHash
+                )
+                  .then((polygonResponse) => polygonResponse.json())
+                  .then((polygonResponseJson) => {
+                    const inputData = polygonResponseJson.result.input;
+                    const inputDecodeFull = abiDecoder.decodeMethod(inputData);
+                    const ipfsLink =
+                      inputDecodeFull.params[inputDecodeFull.params.length - 1]
+                        .value;
+                    fetch(
+                      "https://ipfs.io/ipfs/" +
+                        ipfsLink.slice(7, ipfsLink.length)
+                    )
+                      .then((nftData) => nftData.json())
+                      .then((nftDataJson) => {
+                        setNftInfo(nftDataJson);
+                      });
+                  });
+              });
+          });
+      });
+  };
 
   return (
     <div className={styles.container}>
@@ -29,7 +94,7 @@ export default function Home() {
           rel="stylesheet"
         />
       </Head>
-      <Navbar setAccount={setAccount} />
+      <Navbar setAccount={setAccount} fetchNFTs={fetchNFTs} />
       <main id={styles.maincontainer}>
         <About />
         <InfoArea nftInfo={nftInfo} />
