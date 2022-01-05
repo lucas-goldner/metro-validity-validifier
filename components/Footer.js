@@ -1,12 +1,18 @@
 import React from "react";
 import FooterIcon from "./FooterIcon";
 import styles from "../styles/Footer.module.css";
+import { useWindowWidth } from "@react-hook/window-size";
 
 const Footer = () => {
+  const width = useWindowWidth();
   return (
     <div id={styles.footerrow}>
-      <div className="spacer" />
-      <div className="spacer" />
+      {width >= 1024 && (
+        <>
+          <div className="spacer" />
+          <div className="spacer" />
+        </>
+      )}
       <div className={styles.row}>
         <p className={"descFont"}>Imprint</p>
         <div className={"spacer"} />
