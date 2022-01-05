@@ -4,6 +4,7 @@ import styles from "../styles/Home.module.css";
 import { useState, useEffect } from "react";
 import About from "../components/About";
 import InfoArea from "../components/InfoArea";
+import Footer from "../components/Footer";
 
 export default function Home() {
   const [account, setAccount] = useState("connect");
@@ -31,6 +32,7 @@ export default function Home() {
         <About />
         <InfoArea nftInfo={nftInfo} />
       </main>
+      <Footer />
     </div>
   );
 }
