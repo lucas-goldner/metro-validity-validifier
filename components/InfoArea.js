@@ -8,13 +8,7 @@ const InfoArea = ({ nftInfo, loading, tokenhash, error }) => {
   if (error != "") {
     return (
       <section id={styles.infocontainer}>
-        <Loader
-          type="Puff"
-          color="red"
-          height={50}
-          width={50}
-          timeout={1000000000}
-        />
+        <p className={"white desc"}>{error}</p>
       </section>
     );
   }
