@@ -12,7 +12,7 @@ import amatwinecontract from "../config/amatwine.json";
 export default function Home() {
   const [account, setAccount] = useState("connect");
   const [nftInfo, setNftInfo] = useState({});
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const fetchNFTs = (adress) => {
     setLoading(true);
