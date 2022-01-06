@@ -12,6 +12,16 @@
   align-items: center;
 }
 
+.footerText {
+  font-family: Courier Prime;
+  font-weight: 400;
+}
+
+.footerText:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 @media screen and (min-width: 1024px) {
   #footerrow {
     margin-top: 3rem;

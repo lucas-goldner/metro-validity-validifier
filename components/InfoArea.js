@@ -4,7 +4,21 @@ import styles from "../styles/InfoArea.module.css";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 
-const InfoArea = ({ nftInfo, loading, tokenhash }) => {
+const InfoArea = ({ nftInfo, loading, tokenhash, error }) => {
+  if (error != "") {
+    return (
+      <section id={styles.infocontainer}>
+        <Loader
+          type="Puff"
+          color="red"
+          height={50}
+          width={50}
+          timeout={1000000000}
+        />
+      </section>
+    );
+  }
+
   if (loading)
     return (
       <section id={styles.infocontainer}>

@@ -14,9 +14,19 @@ const Footer = () => {
         </>
       )}
       <div className={styles.row}>
-        <p className={"descFont"}>Imprint</p>
+        <p
+          onClick={() => window.open("https://www.amatwine.com/legal")}
+          className={styles.footerText}
+        >
+          Imprint
+        </p>
         <div className={"spacer"} />
-        <p className={"descFont"}>Privacy</p>
+        <p
+          onClick={() => window.open("https://www.amatwine.com/lega-page")}
+          className={styles.footerText}
+        >
+          Privacy
+        </p>
       </div>
       <div className={styles.row}>
         <p>powered by</p>

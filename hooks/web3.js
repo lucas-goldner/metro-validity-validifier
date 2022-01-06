@@ -38,7 +38,7 @@ export function useWeb3Modal() {
       const ethersProvider = new ethers.providers.Web3Provider(
         externalProvider
       );
-      console.log(ethersProvider);
+
       setProvider(ethersProvider);
     } catch (e) {
       setError("NO_WALLET_CONNECTED");

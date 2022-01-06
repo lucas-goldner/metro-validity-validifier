@@ -11,18 +11,12 @@ const ConnectWallet = ({ setAccount, fetchNFTs }) => {
 
   useEffect(() => {
     const getAddress = async () => {
-      // const signer = provider.getSigner();
-      // const address = await signer.getAddress();
-      // setAccount(address);
-
-      // const networkId = await provider.getNetwork();
-      // console.log(networkId);
-
+      const networkId = await provider.getNetwork();
+      const signer = provider.getSigner();
+      const address = await signer.getAddress();
+      setAccount(address);
       setButtonText("Connected to Metamask");
-      fetchNFTs("0x611B2341605d3b88b82a74990e09023845F3dfEB");
-
-      //setNetworkId(networkId);
-      // if(chainId !== 8001)
+      fetchNFTs(address, networkId.chainId);
     };
     if (provider) getAddress();
     //else setSignerAddress("");
