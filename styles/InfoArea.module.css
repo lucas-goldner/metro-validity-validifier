@@ -72,6 +72,11 @@
   color: white;
 }
 
+.smallerText:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 @media screen and (min-width: 1024px) {
   #infocontainer {
     display: flex;

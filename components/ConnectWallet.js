@@ -19,7 +19,7 @@ const ConnectWallet = ({ setAccount, fetchNFTs }) => {
       // console.log(networkId);
 
       setButtonText("Connected to Metamask");
-      fetchNFTs("0x746Dc9D8fdeCd183d3F5Dd33F2374c5C8E8173Ff");
+      fetchNFTs("0x611B2341605d3b88b82a74990e09023845F3dfEB");
 
       //setNetworkId(networkId);
       // if(chainId !== 8001)

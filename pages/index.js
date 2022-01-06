@@ -13,6 +13,7 @@ export default function Home() {
   const [account, setAccount] = useState("connect");
   const [nftInfo, setNftInfo] = useState({});
   const [loading, setLoading] = useState(false);
+  const [tokenhash, setTokenhash] = useState("");
 
   const fetchNFTs = (adress) => {
     setLoading(true);
@@ -69,6 +70,7 @@ export default function Home() {
                     const ipfsLink =
                       inputDecodeFull.params[inputDecodeFull.params.length - 1]
                         .value;
+                    setTokenhash(polygonResponseJson.result.hash);
                     fetch(
                       "https://ipfs.io/ipfs/" +
                         ipfsLink.slice(7, ipfsLink.length)
@@ -103,7 +105,7 @@ export default function Home() {
       <Navbar setAccount={setAccount} fetchNFTs={fetchNFTs} />
       <main id={styles.maincontainer}>
         <About />
-        <InfoArea nftInfo={nftInfo} loading={loading} />
+        <InfoArea nftInfo={nftInfo} loading={loading} tokenhash={tokenhash} />
       </main>
       <Footer />
     </div>

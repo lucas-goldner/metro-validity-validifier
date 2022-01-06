@@ -4,7 +4,7 @@ import styles from "../styles/InfoArea.module.css";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 
-const InfoArea = ({ nftInfo, loading }) => {
+const InfoArea = ({ nftInfo, loading, tokenhash }) => {
   if (loading)
     return (
       <section id={styles.infocontainer}>
@@ -33,7 +33,14 @@ const InfoArea = ({ nftInfo, loading }) => {
                 No. {nftInfo.verification_number}
               </p>
             </div>
-            <p className={styles.smallerText}>View on blockchain</p>
+            <p
+              onClick={() =>
+                window.open("https://polygonscan.com/tx/" + tokenhash)
+              }
+              className={styles.smallerText}
+            >
+              View on blockchain
+            </p>
           </div>
           <div className={styles.infoRow}>
             <Image
